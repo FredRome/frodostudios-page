@@ -1,0 +1,245 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const games = [
+  {
+    id: 'broken-crown',
+    name: 'The Broken Crown',
+    genre: 'Strategy',
+    tagline: 'A dark fantasy tower defense campaign',
+    description:
+      'Defend your realm in a war of succession. Command towers of steel, fire, and frost across an unfolding story-driven campaign with real depth — no pay-to-win, just strategy.',
+    platforms: ['iOS', 'Android', 'Web'],
+    status: 'Chapter 1 Available',
+    statusColor: 'text-emerald-400',
+    screenshot: '/games/tdgame-screen.png',
+    screenshotAlt: 'The Broken Crown campaign screen showing Chapter 1 levels',
+    url: 'https://game.frodostudios.com',
+    borderColor: 'border-violet-500/30',
+    glowColor: 'hover:shadow-violet-500/20',
+    badgeColor: 'bg-violet-500/20 text-violet-300 border-violet-500/30',
+  },
+  {
+    id: 'ljudjakten',
+    name: 'Ljudjakten',
+    genre: 'Speech Therapy',
+    tagline: 'A Swedish speech-practice game',
+    description:
+      'Designed with speech therapists for children aged 5+. A three-phase therapy workflow — listen, sort, say — that makes practice feel like play. Works offline as a PWA.',
+    platforms: ['Web', 'PWA'],
+    status: 'Available Now',
+    statusColor: 'text-emerald-400',
+    screenshot: '/games/ljudjakten-screen.png',
+    screenshotAlt: 'Ljudjakten home screen on mobile',
+    url: 'https://www.ljudjakten.se',
+    borderColor: 'border-orange-500/30',
+    glowColor: 'hover:shadow-orange-500/20',
+    badgeColor: 'bg-orange-500/20 text-orange-300 border-orange-500/30',
+  },
+  {
+    id: 'english-quest',
+    name: 'English Quest',
+    genre: 'Language Learning',
+    tagline: 'English vocabulary for Swedish kids',
+    description:
+      'Swedish children aged 7–9 explore three colorful worlds — animals, colors, and food — learning English words through pictures, sounds, and rewards. No reading required.',
+    platforms: ['Web'],
+    status: 'Coming Soon',
+    statusColor: 'text-amber-400',
+    screenshot: '/games/swenglish-screen.png',
+    screenshotAlt: 'English Quest quiz screen showing a dog picture with answer choices',
+    borderColor: 'border-cyan-500/30',
+    glowColor: 'hover:shadow-cyan-500/20',
+    badgeColor: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30',
+  },
+];
+---
+
+<Layout>
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between backdrop-blur-md bg-space-900/80 border-b border-white/5">
+    <a href="/" class="flex items-center gap-2 group">
+      <span class="text-2xl font-display font-semibold text-white tracking-wide group-hover:text-violet-300 transition-colors">
+        Frodo<span class="text-violet-400">Studios</span>
+      </span>
+    </a>
+    <a
+      href="#games"
+      class="text-sm font-medium text-slate-400 hover:text-white transition-colors px-4 py-2 rounded-full hover:bg-white/5"
+    >
+      Our Games
+    </a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-space-950 pt-16">
+    <!-- Star field -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute top-[12%] left-[8%] w-1.5 h-1.5 rounded-full bg-violet-300 animate-twinkle"></div>
+      <div class="absolute top-[22%] left-[18%] w-1 h-1 rounded-full bg-white animate-twinkle-slow"></div>
+      <div class="absolute top-[8%] left-[35%] w-1 h-1 rounded-full bg-cyan-300 animate-twinkle-fast"></div>
+      <div class="absolute top-[18%] left-[55%] w-1.5 h-1.5 rounded-full bg-white animate-twinkle"></div>
+      <div class="absolute top-[6%] left-[72%] w-1 h-1 rounded-full bg-yellow-300 animate-twinkle-slow"></div>
+      <div class="absolute top-[25%] left-[88%] w-1.5 h-1.5 rounded-full bg-violet-300 animate-twinkle-fast"></div>
+      <div class="absolute top-[40%] left-[5%] w-1 h-1 rounded-full bg-white animate-twinkle"></div>
+      <div class="absolute top-[55%] left-[92%] w-1 h-1 rounded-full bg-cyan-300 animate-twinkle"></div>
+      <div class="absolute top-[70%] left-[15%] w-1.5 h-1.5 rounded-full bg-yellow-300 animate-twinkle-slow"></div>
+      <div class="absolute top-[80%] left-[78%] w-1 h-1 rounded-full bg-white animate-twinkle-fast"></div>
+      <div class="absolute top-[88%] left-[40%] w-1 h-1 rounded-full bg-violet-300 animate-twinkle"></div>
+      <div class="absolute top-[75%] left-[60%] w-1.5 h-1.5 rounded-full bg-cyan-300 animate-twinkle-slow"></div>
+    </div>
+
+    <!-- Ambient glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-violet-600/10 blur-[120px] pointer-events-none" aria-hidden="true"></div>
+
+    <!-- Floating game icons -->
+    <div class="absolute top-[20%] left-[10%] hidden lg:block animate-float opacity-30" aria-hidden="true">
+      <div class="w-10 h-10 rounded-xl bg-violet-500/20 border border-violet-500/30 flex items-center justify-center text-xl">🏰</div>
+    </div>
+    <div class="absolute top-[30%] right-[10%] hidden lg:block animate-float-md opacity-30" aria-hidden="true">
+      <div class="w-10 h-10 rounded-xl bg-orange-500/20 border border-orange-500/30 flex items-center justify-center text-xl">🎤</div>
+    </div>
+    <div class="absolute bottom-[25%] left-[8%] hidden lg:block animate-float-lg opacity-30" aria-hidden="true">
+      <div class="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center text-xl">🌍</div>
+    </div>
+
+    <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
+      <!-- Eyebrow -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-sm font-medium mb-8">
+        <span class="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse"></span>
+        By Grundur AB — Made in Sweden
+      </div>
+
+      <!-- Title -->
+      <h1 class="font-display text-6xl sm:text-7xl md:text-8xl font-semibold text-white leading-tight mb-6">
+        Frodo<span class="text-violet-400">Studios</span>
+      </h1>
+
+      <!-- Tagline -->
+      <p class="text-xl sm:text-2xl text-slate-400 font-body leading-relaxed mb-10 max-w-xl mx-auto">
+        Games for every kind of player —<br class="hidden sm:block" />
+        <span class="text-slate-300">strategy, speech, and exploration.</span>
+      </p>
+
+      <!-- CTA -->
+      <a
+        href="#games"
+        class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-violet-600 hover:bg-violet-500 text-white font-display font-medium text-lg transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-violet-500/25"
+      >
+        See our games
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Games -->
+  <section id="games" class="py-24 px-6 bg-space-900">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl sm:text-5xl font-semibold text-white mb-4">Our Games</h2>
+        <p class="text-slate-400 text-lg max-w-lg mx-auto">
+          From epic strategy to language learning, we build games that are genuinely fun to play.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {games.map((game) => (
+          <article
+            class={`relative rounded-2xl border ${game.borderColor} bg-space-800 overflow-hidden group transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl ${game.glowColor} flex flex-col`}
+          >
+            <!-- Card screenshot -->
+            <div class="h-48 relative overflow-hidden bg-space-700">
+              <img
+                src={game.screenshot}
+                alt={game.screenshotAlt}
+                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              />
+              <!-- Bottom fade into card body -->
+              <div class="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-space-800 to-transparent"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-6 flex flex-col flex-1">
+              <!-- Genre badge -->
+              <span class={`self-start text-xs font-medium px-3 py-1 rounded-full border ${game.badgeColor} mb-3`}>
+                {game.genre}
+              </span>
+
+              <h3 class="font-display text-2xl font-semibold text-white mb-1">{game.name}</h3>
+              <p class="text-sm text-slate-400 mb-3 italic">{game.tagline}</p>
+              <p class="text-slate-300 text-sm leading-relaxed flex-1 mb-5">{game.description}</p>
+
+              <!-- Footer row -->
+              <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                <!-- Platforms -->
+                <div class="flex gap-1.5 flex-wrap">
+                  {game.platforms.map((p) => (
+                    <span class="text-xs text-slate-500 bg-white/5 px-2 py-0.5 rounded-md">{p}</span>
+                  ))}
+                </div>
+                <!-- Play link or status -->
+                {game.url ? (
+                  <a
+                    href={game.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class={`text-xs font-medium px-3 py-1.5 rounded-lg border ${game.badgeColor} hover:brightness-125 transition-all`}
+                  >
+                    Play →
+                  </a>
+                ) : (
+                  <span class={`text-xs font-medium ${game.statusColor}`}>{game.status}</span>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="py-24 px-6 bg-space-950 relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-violet-600/8 blur-[80px] rounded-full"></div>
+    </div>
+    <div class="relative z-10 max-w-2xl mx-auto text-center">
+      <div class="w-16 h-16 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center mx-auto mb-8 text-3xl">
+        🎮
+      </div>
+      <h2 class="font-display text-4xl font-semibold text-white mb-6">About FrodoStudios</h2>
+      <p class="text-slate-400 text-lg leading-relaxed mb-4">
+        We are a small, independent Swedish game studio building games that matter to real people — kids learning their first English words, children working on speech, and strategy fans looking for their next obsession.
+      </p>
+      <p class="text-slate-400 text-lg leading-relaxed mb-8">
+        We believe games are a uniquely powerful medium. Our goal is to use that power thoughtfully — making things that are fun first, and impactful by design.
+      </p>
+      <p class="text-slate-500 text-base">
+        FrodoStudios is the gaming arm of{' '}
+        <a
+          href="https://www.grundur.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-violet-400 hover:text-violet-300 underline underline-offset-4 transition-colors"
+        >
+          Grundur AB
+        </a>
+        {' '}— a Stockholm-based studio doing a lot more than games.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 px-6 bg-space-900 border-t border-white/5">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <span class="font-display text-lg font-medium text-white">
+        Frodo<span class="text-violet-400">Studios</span>
+      </span>
+      <p class="text-slate-500 text-sm text-center">
+        © {new Date().getFullYear()} Grundur AB. All rights reserved.
+      </p>
+    </div>
+  </footer>
+</Layout>
