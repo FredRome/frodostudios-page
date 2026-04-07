@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import logo from '../../image.png';
 
 const games = [
   {
@@ -58,7 +59,12 @@ const games = [
 <Layout>
   <!-- Nav -->
   <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between backdrop-blur-md bg-space-900/80 border-b border-white/5">
-    <a href="/" class="flex items-center gap-2 group">
+    <a href="/" class="flex items-center gap-3 group">
+      <img
+        src={logo}
+        alt=""
+        class="h-9 w-9 rounded-lg object-cover shadow-lg shadow-violet-500/15 ring-1 ring-white/10"
+      />
       <span class="text-2xl font-display font-semibold text-white tracking-wide group-hover:text-violet-300 transition-colors">
         Frodo<span class="text-violet-400">Studios</span>
       </span>
@@ -110,10 +116,13 @@ const games = [
         By Grundur AB — Made in Sweden
       </div>
 
-      <!-- Title -->
-      <h1 class="font-display text-6xl sm:text-7xl md:text-8xl font-semibold text-white leading-tight mb-6">
-        Frodo<span class="text-violet-400">Studios</span>
-      </h1>
+      <img
+        src={logo}
+        alt="FrodoStudios logo"
+        class="mx-auto mb-8 w-[min(78vw,32rem)] drop-shadow-[0_0_32px_rgba(245,158,11,0.35)]"
+      />
+
+      <h1 class="sr-only">FrodoStudios</h1>
 
       <!-- Tagline -->
       <p class="text-xl sm:text-2xl text-slate-400 font-body leading-relaxed mb-10 max-w-xl mx-auto">
@@ -234,9 +243,16 @@ const games = [
   <!-- Footer -->
   <footer class="py-10 px-6 bg-space-900 border-t border-white/5">
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <span class="font-display text-lg font-medium text-white">
-        Frodo<span class="text-violet-400">Studios</span>
-      </span>
+      <a href="/" class="flex items-center gap-3 group">
+        <img
+          src={logo}
+          alt=""
+          class="h-8 w-8 rounded-lg object-cover shadow-lg shadow-violet-500/10 ring-1 ring-white/10"
+        />
+        <span class="font-display text-lg font-medium text-white group-hover:text-violet-300 transition-colors">
+          Frodo<span class="text-violet-400">Studios</span>
+        </span>
+      </a>
       <p class="text-slate-500 text-sm text-center">
         © {new Date().getFullYear()} Grundur AB. All rights reserved.
       </p>
