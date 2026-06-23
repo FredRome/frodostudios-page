@@ -1,13 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const version = '0.2.0';
-const dmg = '/weddingplayer/Wedding-Player_0.2.0_universal.dmg';
+const version = '0.3.0';
+const dmg = '/weddingplayer/Wedding-Player_0.3.0_universal.dmg';
 const sha256 =
-  '1b33e002f5521e51bd60aab9bea5507c72376a555ad27afdaf2740b30e9cd28e';
+  'e0ab1448817a3e4680c77fa8f0e777081ee5d1bcb83df026e2deebb434c22ad5';
 
 const triggerKeys = [
   { keys: '0–9, z x c v b', desc: 'Spela det klippet från början (tryck igen = starta om)' },
+  { keys: 'K', desc: 'Live-kamera i fullskärm (t.ex. tombola-dragning)' },
+  { keys: 'H', desc: 'Spegla kamerabilden' },
   { keys: 'Esc', desc: 'Tillbaka till loopen' },
   { keys: 'Mellanslag', desc: 'Pausa / spela' },
   { keys: 'M', desc: 'Ljud av / på' },
@@ -17,6 +19,14 @@ const triggerKeys = [
 ];
 
 const releases = [
+  {
+    version: '0.3.0',
+    date: '2026-06-23',
+    notes: [
+      'Live-kamera i fullskärm – tryck K (t.ex. för tombola-dragning), Esc tillbaka till loopen.',
+      'Spegla kamerabilden med H; inställningen sparas.',
+    ],
+  },
   {
     version: '0.2.0',
     date: '2026-06-23',
