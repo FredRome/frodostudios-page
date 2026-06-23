@@ -1,18 +1,40 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const version = '0.1.0';
-const dmg = '/weddingplayer/Wedding-Player_0.1.0_universal.dmg';
+const version = '0.2.0';
+const dmg = '/weddingplayer/Wedding-Player_0.2.0_universal.dmg';
 const sha256 =
-  'fe69badfc534b5fa1ae993bc9f4565c40a3975bd380179037f94fbb6796cbaaa';
+  '1b33e002f5521e51bd60aab9bea5507c72376a555ad27afdaf2740b30e9cd28e';
 
 const triggerKeys = [
   { keys: '0–9, z x c v b', desc: 'Spela det klippet från början (tryck igen = starta om)' },
   { keys: 'Esc', desc: 'Tillbaka till loopen' },
   { keys: 'Mellanslag', desc: 'Pausa / spela' },
   { keys: 'M', desc: 'Ljud av / på' },
+  { keys: '↑ / ↓', desc: 'Höj / sänk volymen' },
   { keys: 'F', desc: 'Gå till fullskärm igen' },
   { keys: 'Q', desc: 'Avsluta showen, tillbaka till inställningar' },
+];
+
+const releases = [
+  {
+    version: '0.2.0',
+    date: '2026-06-23',
+    notes: [
+      'Direkt, flimmerfritt byte mellan klipp – alla klipp förladdas.',
+      'Loopen återupptas omedelbart när ett klipp tar slut.',
+      'Automatisk återgång till loopen om ett klipp inte kan spelas.',
+      'Hindrar att skärmen släcks eller datorn somnar under showen.',
+      'Volymkontroll med pil upp/ner; mute och volym sparas.',
+      'Notiser på skärmen vid otillgängligt klipp eller uppspelningsfel.',
+      'Format-varning i setup för klipp som kan visas gröna (10-bit/HDR), med ffmpeg-kommando.',
+    ],
+  },
+  {
+    version: '0.1.0',
+    date: '2026-06-21',
+    notes: ['Första version: fullskärmsuppspelning via tangenttryck, loop-bakgrund och setup-skärm.'],
+  },
 ];
 ---
 
@@ -148,6 +170,23 @@ const triggerKeys = [
           koppla in projektorn och spegla skärmen först, stäng av skärmsläckare och viloläge, och håll
           Wedding Player-fönstret aktivt — tangenterna fungerar bara när appen är i förgrunden. Byter du
           ut en fil medan appen är igång: klicka <strong class="text-white">Rescan</strong> efteråt.
+        </div>
+      </article>
+
+      <!-- Release notes -->
+      <article class="rounded-2xl border border-white/10 bg-space-800 p-7">
+        <h2 class="font-display text-2xl font-semibold text-white mb-5">Nyheter</h2>
+        <div class="space-y-6">
+          {releases.map((rel) => (
+            <div>
+              <div class="font-display font-semibold text-violet-300 mb-2">
+                v{rel.version} <span class="text-slate-500 font-body font-normal text-sm">· {rel.date}</span>
+              </div>
+              <ul class="list-disc pl-5 space-y-1.5 text-slate-300 text-sm">
+                {rel.notes.map((n) => <li>{n}</li>)}
+              </ul>
+            </div>
+          ))}
         </div>
       </article>
 
