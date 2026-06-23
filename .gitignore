@@ -4,3 +4,7 @@ dist/
 .env
 .env.*
 !.env.example
+
+# local notes, not tracked
+AGENTS.md
+STATUS.md
