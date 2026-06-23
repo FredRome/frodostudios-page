@@ -2,12 +2,19 @@
 interface Props {
   title?: string;
   description?: string;
+  /** Path or URL to the social share image (1200x630). */
+  image?: string;
 }
 
 const {
   title = 'FrodoStudios — Games for every kind of player',
   description = 'FrodoStudios by Grundur AB. We build games for every kind of player — strategy adventures, speech therapy tools, and language learning for kids.',
+  image,
 } = Astro.props;
+
+// Absolute URLs for social crawlers (iMessage/WhatsApp require absolute).
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = image ? new URL(image, Astro.site).href : undefined;
 ---
 
 <!doctype html>
@@ -17,7 +24,21 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="canonical" href={canonical} />
     <title>{title}</title>
+
+    <!-- Open Graph / social previews -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    {ogImage && <meta property="og:image:width" content="1200" />}
+    {ogImage && <meta property="og:image:height" content="630" />}
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
