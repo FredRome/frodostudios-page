@@ -1,0 +1,170 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const version = '0.1.0';
+const dmg = '/weddingplayer/Wedding-Player_0.1.0_universal.dmg';
+const sha256 =
+  'fe69badfc534b5fa1ae993bc9f4565c40a3975bd380179037f94fbb6796cbaaa';
+
+const triggerKeys = [
+  { keys: '0–9, z x c v b', desc: 'Spela det klippet från början (tryck igen = starta om)' },
+  { keys: 'Esc', desc: 'Tillbaka till loopen' },
+  { keys: 'Mellanslag', desc: 'Pausa / spela' },
+  { keys: 'M', desc: 'Ljud av / på' },
+  { keys: 'F', desc: 'Gå till fullskärm igen' },
+  { keys: 'Q', desc: 'Avsluta showen, tillbaka till inställningar' },
+];
+---
+
+<Layout
+  title="Wedding Player — FrodoStudios"
+  description="Wedding Player: spela upp dina bröllopsklipp i fullskärm med ett tangenttryck. Gratis app för Mac från FrodoStudios."
+>
+  <!-- Nav -->
+  <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between backdrop-blur-md bg-space-900/80 border-b border-white/5">
+    <a href="/" class="flex items-center gap-3 group">
+      <span class="text-2xl font-display font-semibold text-white tracking-wide group-hover:text-violet-300 transition-colors">
+        Frodo<span class="text-violet-400">Studios</span>
+      </span>
+    </a>
+    <a
+      href="/"
+      class="text-sm font-medium text-slate-400 hover:text-white transition-colors px-4 py-2 rounded-full hover:bg-white/5"
+    >
+      ← Tillbaka
+    </a>
+  </nav>
+
+  <!-- Hero / download -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-space-950 pt-24 pb-16">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-violet-600/10 blur-[120px] pointer-events-none" aria-hidden="true"></div>
+
+    <div class="relative z-10 text-center px-6 max-w-2xl mx-auto">
+      <img
+        src="/weddingplayer/icon.png"
+        alt="Wedding Player"
+        class="mx-auto mb-8 w-24 h-24 rounded-3xl shadow-[0_12px_40px_rgba(140,92,255,0.4)]"
+      />
+      <h1 class="font-display text-5xl sm:text-6xl font-semibold text-white mb-4">
+        Wedding<span class="text-violet-400">Player</span>
+      </h1>
+      <p class="text-xl text-slate-400 font-body leading-relaxed mb-10">
+        Spela upp dina videoklipp i fullskärm med ett tangenttryck.<br
+          class="hidden sm:block"
+        />
+        Byggd för bröllopets toastmaster. För Mac.
+      </p>
+
+      <a
+        href={dmg}
+        download
+        class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-violet-600 hover:bg-violet-500 text-white font-display font-medium text-lg transition-all duration-200 hover:scale-105 hover:shadow-xl hover:shadow-violet-500/25"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16" />
+        </svg>
+        Ladda ner för Mac
+      </a>
+
+      <p class="mt-5 text-sm text-slate-500">
+        Version {version} · 3,0 MB · Intel &amp; Apple Silicon
+      </p>
+      <p class="mt-1 text-[11px] text-slate-600 font-mono break-all max-w-md mx-auto">
+        SHA-256: {sha256}
+      </p>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="py-24 px-6 bg-space-900">
+    <div class="max-w-3xl mx-auto space-y-6">
+      <!-- 1. Install -->
+      <article class="rounded-2xl border border-violet-500/30 bg-space-800 p-7">
+        <h2 class="font-display text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+          <span class="grid place-items-center w-8 h-8 rounded-lg bg-violet-600 text-white text-base">1</span>
+          Installera
+        </h2>
+        <ol class="list-decimal pl-5 space-y-2 text-slate-300">
+          <li>Öppna den nedladdade <code class="text-violet-300">.dmg</code>-filen.</li>
+          <li>Dra <strong class="text-white">Wedding Player</strong> till mappen <strong class="text-white">Program</strong>.</li>
+          <li>Mata ut skivan och radera <code class="text-violet-300">.dmg</code>-filen.</li>
+        </ol>
+        <div class="mt-5 rounded-xl border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-sm text-slate-300">
+          <strong class="text-amber-400">Första gången du öppnar appen:</strong> macOS varnar för att
+          appen inte kommer från App Store. Det är normalt. Gå till
+          <strong class="text-white">Systeminställningar → Sekretess &amp; säkerhet</strong>, scrolla ner och
+          klicka <strong class="text-white">Öppna ändå</strong>. Bekräfta med lösenord eller Touch ID.
+          Behövs bara en gång.
+        </div>
+      </article>
+
+      <!-- 2. Folder -->
+      <article class="rounded-2xl border border-violet-500/30 bg-space-800 p-7">
+        <h2 class="font-display text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+          <span class="grid place-items-center w-8 h-8 rounded-lg bg-violet-600 text-white text-base">2</span>
+          Lägg dina klipp i en mapp
+        </h2>
+        <p class="text-slate-300 mb-4">
+          Skapa <strong class="text-white">en mapp</strong> för bröllopet och namnge filerna exakt så här.
+          Du behöver inte alla — bara de du vill använda.
+        </p>
+        <pre class="rounded-xl border border-white/10 bg-space-950 px-4 py-3 text-sm text-slate-400 font-mono overflow-x-auto"><span class="text-slate-500">min-bröllopsmapp/</span>
+├── <span class="text-white">loop.mp4</span>   ← spelas hela tiden när inget annat är igång
+├── <span class="text-white">0.mp4</span> … <span class="text-white">9.mp4</span>   ← spelas när du trycker 0–9
+└── <span class="text-white">z.mp4 · x.mp4 · c.mp4 · v.mp4 · b.mp4</span></pre>
+        <div class="mt-5 rounded-xl border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-sm text-slate-300">
+          <strong class="text-amber-400">Viktigt om videoformat:</strong> använd vanlig
+          <strong class="text-white">H.264 / 8-bitars (yuv420p)</strong> MP4. Filmer i 10-bitars färg,
+          HEVC eller 4:2:2 kan visas gröna eller trasiga — exportera om dem då.
+        </div>
+      </article>
+
+      <!-- 3. Run -->
+      <article class="rounded-2xl border border-violet-500/30 bg-space-800 p-7">
+        <h2 class="font-display text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+          <span class="grid place-items-center w-8 h-8 rounded-lg bg-violet-600 text-white text-base">3</span>
+          Kör showen
+        </h2>
+        <ol class="list-decimal pl-5 space-y-2 text-slate-300 mb-6">
+          <li>Klicka <strong class="text-white">Choose show folder</strong> och välj din mapp.</li>
+          <li>Skärmen visar vilka klipp som hittades (grönt = klart). Kontrollera att <code class="text-violet-300">loop.mp4</code> finns.</li>
+          <li><strong class="text-white">Test selected clip</strong> låter dig förhandsvisa varje klipp innan eventet.</li>
+          <li>Klicka <strong class="text-white">Start show</strong> — appen går till fullskärm.</li>
+        </ol>
+
+        <h3 class="font-display text-base font-semibold text-white mb-3">Tangenter under showen</h3>
+        <div class="rounded-xl border border-white/10 overflow-hidden">
+          {triggerKeys.map((row, i) => (
+            <div class={`flex gap-4 px-4 py-2.5 text-sm ${i % 2 ? 'bg-space-900/40' : ''}`}>
+              <span class="font-mono text-violet-300 whitespace-nowrap min-w-[9rem]">{row.keys}</span>
+              <span class="text-slate-300">{row.desc}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-5 rounded-xl border border-violet-500/30 bg-violet-500/10 px-4 py-3 text-sm text-slate-300">
+          <strong class="text-violet-300">Tips inför stora dagen:</strong> testa varje klipp i förväg,
+          koppla in projektorn och spegla skärmen först, stäng av skärmsläckare och viloläge, och håll
+          Wedding Player-fönstret aktivt — tangenterna fungerar bara när appen är i förgrunden. Byter du
+          ut en fil medan appen är igång: klicka <strong class="text-white">Rescan</strong> efteråt.
+        </div>
+      </article>
+
+      <p class="text-center text-slate-500 text-sm pt-4">
+        Ingen internetuppkoppling krävs · all uppspelning sker lokalt på din Mac.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 px-6 bg-space-900 border-t border-white/5">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a href="/" class="font-display text-lg font-medium text-white hover:text-violet-300 transition-colors">
+        Frodo<span class="text-violet-400">Studios</span>
+      </a>
+      <p class="text-slate-500 text-sm text-center">
+        © {new Date().getFullYear()} Grundur AB. All rights reserved.
+      </p>
+    </div>
+  </footer>
+</Layout>
